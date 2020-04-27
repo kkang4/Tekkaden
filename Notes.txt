@@ -1,0 +1,10 @@
+1. Finished adding scenes.
+2. Finished implementing basic player control.
+    Use arrow keys to go up or down. 
+    Press 'F' to shoot. Currently, shooting mechanic is very basic. (Once bullets have traveled outside the screen, then you can shoot again)
+    Haven't implemented collision for bullets with enemeis/obstacles.
+3. Green tank is player.
+4. Red tank is enemy player. (Doesn't shoot yet)
+5. Black square is rock.
+    It moves towards player.
+    When collide with player, reset its position. 
