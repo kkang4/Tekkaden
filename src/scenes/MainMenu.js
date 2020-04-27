@@ -1,11 +1,10 @@
-class Menu extends Phaser.Scene{
+class MainMenu extends Phaser.Scene{
     constructor(){
-        super("menuScene");
+        super("mainMenuScene");
     }
 
     preload(){
-        // load audio
-        this.load.audio('sfx_select', './assets/blip_select12.wav');
+ 
     }
 
     create(){
@@ -28,13 +27,10 @@ class Menu extends Phaser.Scene{
         let centerY = game.config.height/2;
         let textSpacer = 100;
         
-        this.add.text(centerX, centerY - textSpacer, 'ROCKET  PATROL', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = 'pink';
-        this.add.text(centerX, centerY - textSpacer/3, 'Press 1 for singleplayer mode', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = 'lightblue';
-        this.add.text(centerX, centerY + textSpacer/3, 'Press 2 for two-player mode', menuConfig).setOrigin(0.5);
-        menuConfig.backgroundColor = 'lightgreen';
-        this.add.text(centerX, centerY + textSpacer, 'Press 3 for three-player mode', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer, 'ENDLESS RUNNER', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer/3, '1: Tank Selection', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer/3, '2: Tutorial', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY + textSpacer, '3: Settings', menuConfig).setOrigin(0.5);
         
         // define keys
         keyONE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE);
@@ -45,19 +41,16 @@ class Menu extends Phaser.Scene{
 
     update(){
         if(Phaser.Input.Keyboard.JustDown(keyONE)){
-            // singleplayer mode
-            this.sound.play('sfx_select');
-            this.scene.start("OPMenuScene");
+            // tank selection
+            this.scene.start("tankSelectionScene");
         }
         if(Phaser.Input.Keyboard.JustDown(keyTWO)){
-            // two-player mode
-            this.sound.play('sfx_select');
-            this.scene.start("TPMenuScene");
+            // tutorial
+            this.scene.start("tutorialScene");
         }
         if(Phaser.Input.Keyboard.JustDown(keyTHREE)){
-            // three-player mode
-            this.sound.play('sfx_select');
-            this.scene.start("ThMenuScene");
+            // settings
+            this.scene.start("settingScene");
         }
     }
 }

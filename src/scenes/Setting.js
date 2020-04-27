@@ -1,10 +1,6 @@
-class TankSelection extends Phaser.Scene{
+class Setting extends Phaser.Scene{
     constructor(){
-        super("tankSelectionScene");
-    }
-
-    preload(){
- 
+        super("settingScene");
     }
 
     create(){
@@ -27,22 +23,16 @@ class TankSelection extends Phaser.Scene{
         let centerY = game.config.height/2;
         let textSpacer = 100;
         
-        this.add.text(centerX, centerY - textSpacer, 'TANKSELECTION', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY - textSpacer/3, '1: PLAY', menuConfig).setOrigin(0.5);
-        this.add.text(centerX, centerY + textSpacer/3, '2: GO BACK TO MAIN MENU', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer, 'SETTINGS', menuConfig).setOrigin(0.5);
+        this.add.text(centerX, centerY - textSpacer/3, '1: GO BACK TO MAIN MENU', menuConfig).setOrigin(0.5);
         
         // define keys
         keyONE = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.ONE);
-        keyTWO = this.input.keyboard.addKey(Phaser.Input.Keyboard.KeyCodes.TWO);
 
     }
 
     update(){
         if(Phaser.Input.Keyboard.JustDown(keyONE)){
-            // play
-            this.scene.start("playScene");
-        }
-        if(Phaser.Input.Keyboard.JustDown(keyTWO)){
             // go back to main menu
             this.scene.start("mainMenuScene");
         }
